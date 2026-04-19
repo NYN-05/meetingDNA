@@ -1,0 +1,147 @@
+{
+  "meeting": {
+    "title": "AI Meeting Intelligence Platform",
+    "date": "2026-04-18",
+    "duration_minutes": 45,
+    "participants": [
+      {"name": "Aarav", "role": "Product Manager"},
+      {"name": "Nayan", "role": "Backend Engineer"},
+      {"name": "Riya", "role": "ML Engineer"},
+      {"name": "Karan", "role": "Frontend Engineer"},
+      {"name": "Meera", "role": "Business Lead"}
+    ],
+    "agenda": [
+      "Define MVP scope",
+      "Finalize architecture",
+      "Identify risks",
+      "Assign ownership"
+    ],
+    "transcript": [
+      {
+        "timestamp": "00:00",
+        "speaker": "Aarav",
+        "role": "Product Manager",
+        "text": "Alright, let’s get started. The objective today is simple—lock down MVP scope. No overengineering. We need something demo-ready in 2 weeks."
+      },
+      {
+        "timestamp": "00:02",
+        "speaker": "Meera",
+        "role": "Business Lead",
+        "text": "From a business perspective, the core value is capturing meeting decisions and context. If we miss that, the product is useless."
+      },
+      {
+        "timestamp": "00:05",
+        "speaker": "Nayan",
+        "role": "Backend Engineer",
+        "text": "Then we need to define what decision means technically. Are we extracting action items, summaries, or explicit decisions?"
+      },
+      {
+        "timestamp": "00:07",
+        "speaker": "Riya",
+        "role": "ML Engineer",
+        "text": "Detecting decisions is non-trivial. We can start with action item extraction, key summary generation, and speaker tagging."
+      },
+      {
+        "timestamp": "00:10",
+        "speaker": "Aarav",
+        "role": "Product Manager",
+        "text": "So MVP equals summaries plus action items. Drop decision intelligence for now?"
+      },
+      {
+        "timestamp": "00:11",
+        "speaker": "Meera",
+        "role": "Business Lead",
+        "text": "Yes, but messaging should still say decision support, not decision detection."
+      },
+      {
+        "timestamp": "00:12",
+        "speaker": "Karan",
+        "role": "Frontend Engineer",
+        "text": "UI-wise, I’ll need a transcript panel, highlighted action items, and timeline navigation. Do we want real-time or post-meeting processing?"
+      },
+      {
+        "timestamp": "00:14",
+        "speaker": "Nayan",
+        "role": "Backend Engineer",
+        "text": "Real-time is risky due to latency and infrastructure complexity. We should process after the meeting ends."
+      },
+      {
+        "timestamp": "00:15",
+        "speaker": "Riya",
+        "role": "ML Engineer",
+        "text": "Agree. Real-time NLP will break under noise and overlapping speech."
+      },
+      {
+        "timestamp": "00:18",
+        "speaker": "Nayan",
+        "role": "Backend Engineer",
+        "text": "Tech stack proposal: FastAPI backend, Redis queue, PostgreSQL storage, Whisper for transcription."
+      },
+      {
+        "timestamp": "00:20",
+        "speaker": "Riya",
+        "role": "ML Engineer",
+        "text": "Whisper is fine, but we should use a smaller model for speed."
+      },
+      {
+        "timestamp": "00:22",
+        "speaker": "Aarav",
+        "role": "Product Manager",
+        "text": "Speed over perfection for MVP. Users tolerate minor errors, not delays."
+      },
+      {
+        "timestamp": "00:25",
+        "speaker": "Karan",
+        "role": "Frontend Engineer",
+        "text": "API response format? I need structured JSON."
+      },
+      {
+        "timestamp": "00:26",
+        "speaker": "Nayan",
+        "role": "Backend Engineer",
+        "text": "You’ll get summary, action_items, and speakers in structured format."
+      },
+      {
+        "timestamp": "00:28",
+        "speaker": "Riya",
+        "role": "ML Engineer",
+        "text": "We should also store embeddings for future search."
+      },
+      {
+        "timestamp": "00:29",
+        "speaker": "Nayan",
+        "role": "Backend Engineer",
+        "text": "That’s scope creep. Not needed for MVP."
+      },
+      {
+        "timestamp": "00:32",
+        "speaker": "Meera",
+        "role": "Business Lead",
+        "text": "Key risks include accuracy complaints, slow processing, and poor UI clarity."
+      },
+      {
+        "timestamp": "00:36",
+        "speaker": "Nayan",
+        "role": "Backend Engineer",
+        "text": "Biggest risk is infrastructure scaling if usage spikes."
+      },
+      {
+        "timestamp": "00:40",
+        "speaker": "Aarav",
+        "role": "Product Manager",
+        "text": "Final decisions: MVP includes summary and action items, post-meeting processing only, simple architecture. Deadline is 2 weeks."
+      }
+    ],
+    "decisions": [
+      "MVP will include summary and action item extraction",
+      "Post-meeting processing will be used instead of real-time",
+      "Avoid advanced features like embeddings in MVP"
+    ],
+    "action_items": [
+      {"owner": "Nayan", "task": "Develop backend APIs", "deadline": "2 weeks"},
+      {"owner": "Riya", "task": "Implement ML pipeline for summarization", "deadline": "2 weeks"},
+      {"owner": "Karan", "task": "Build frontend interface", "deadline": "2 weeks"},
+      {"owner": "Meera", "task": "Validate business use cases", "deadline": "2 weeks"}
+    ]
+  }
+}

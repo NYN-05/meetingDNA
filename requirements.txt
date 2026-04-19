@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+openai-whisper
+neo4j
+chromadb
+requests
+pydantic
+python-dotenv
+python-multipart
+openai

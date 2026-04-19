@@ -1,0 +1,479 @@
+{
+  "decisions": {
+    "MVP scope consists of summaries and action items, excluding decision intelligence/detection.": {
+      "decision": "MVP scope consists of summaries and action items, excluding decision intelligence/detection.",
+      "created_at": "2026-04-19T10:15:27.463086+00:00",
+      "history": [
+        {
+          "revision_id": "4c369e80-a18a-468c-af09-2ebea6e93ec9",
+          "decision": "MVP scope consists of summaries and action items, excluding decision intelligence/detection.",
+          "owner": null,
+          "rationale": "Detecting decisions is non-trivial; speed over perfection for MVP.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:15:27.463086+00:00"
+        },
+        {
+          "revision_id": "7c90a81f-3368-491e-9311-52c289f0b97f",
+          "decision": "MVP scope consists of summaries and action items, excluding decision intelligence/detection.",
+          "owner": null,
+          "rationale": "To ensure a demo-ready product within 2 weeks and avoid overengineering.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:23:17.976367+00:00"
+        },
+        {
+          "revision_id": "1ced37ff-2d8a-47a7-bb72-b4d8dd3fb099",
+          "decision": "MVP scope consists of summaries and action items, excluding decision intelligence/detection.",
+          "owner": null,
+          "rationale": "To ensure the product is demo-ready in 2 weeks and avoid overengineering.",
+          "status": "Final",
+          "source_meeting": null,
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:27:11.054426+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "To ensure the product is demo-ready in 2 weeks and avoid overengineering.",
+      "status": "Final",
+      "source_meeting": null,
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:27:11.054426+00:00",
+      "dependencies": []
+    },
+    "Use post-meeting processing instead of real-time processing.": {
+      "decision": "Use post-meeting processing instead of real-time processing.",
+      "created_at": "2026-04-19T10:16:09.044791+00:00",
+      "history": [
+        {
+          "revision_id": "bb211b61-cfa0-4a8e-b806-ea8b8b36e4d9",
+          "decision": "Use post-meeting processing instead of real-time processing.",
+          "owner": null,
+          "rationale": "Real-time is risky due to latency, infrastructure complexity, and potential failure under noise/overlapping speech.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:16:09.044791+00:00"
+        },
+        {
+          "revision_id": "43856ce4-3d1c-4351-9e4a-fa973b3dafd1",
+          "decision": "Use post-meeting processing instead of real-time processing.",
+          "owner": null,
+          "rationale": "Real-time is risky due to latency, infrastructure complexity, and potential failure under noise or overlapping speech.",
+          "status": "Final",
+          "source_meeting": null,
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:27:11.057959+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Real-time is risky due to latency, infrastructure complexity, and potential failure under noise or overlapping speech.",
+      "status": "Final",
+      "source_meeting": null,
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:27:11.057959+00:00",
+      "dependencies": []
+    },
+    "Tech stack: FastAPI backend, Redis queue, PostgreSQL storage, and Whisper for transcription (using a smaller model).": {
+      "decision": "Tech stack: FastAPI backend, Redis queue, PostgreSQL storage, and Whisper for transcription (using a smaller model).",
+      "created_at": "2026-04-19T10:16:55.059913+00:00",
+      "history": [
+        {
+          "revision_id": "618d8690-2c85-4aab-8917-cc70af07cad3",
+          "decision": "Tech stack: FastAPI backend, Redis queue, PostgreSQL storage, and Whisper for transcription (using a smaller model).",
+          "owner": null,
+          "rationale": "Smaller model is preferred for speed over perfection to avoid delays.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:16:55.059913+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Smaller model is preferred for speed over perfection to avoid delays.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:16:55.059913+00:00",
+      "dependencies": []
+    },
+    "Exclude embeddings for search from the MVP.": {
+      "decision": "Exclude embeddings for search from the MVP.",
+      "created_at": "2026-04-19T10:17:36.346095+00:00",
+      "history": [
+        {
+          "revision_id": "6244f548-605f-47b0-967b-5c4c1423a363",
+          "decision": "Exclude embeddings for search from the MVP.",
+          "owner": null,
+          "rationale": "Considered scope creep and not needed for the initial version.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:17:36.346095+00:00"
+        },
+        {
+          "revision_id": "c1373316-48a3-41b7-91b2-5fc27a7f296a",
+          "decision": "Exclude embeddings for search from the MVP.",
+          "owner": null,
+          "rationale": "Considered scope creep and not necessary for the initial version.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:23:18.071414+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Considered scope creep and not necessary for the initial version.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:23:18.071414+00:00",
+      "dependencies": []
+    },
+    "MVP deadline is 2 weeks.": {
+      "decision": "MVP deadline is 2 weeks.",
+      "created_at": "2026-04-19T10:18:23.202632+00:00",
+      "history": [
+        {
+          "revision_id": "0a68de39-a000-465c-9a7c-7636c0a67b73",
+          "decision": "MVP deadline is 2 weeks.",
+          "owner": null,
+          "rationale": "Need something demo-ready quickly.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:18:23.202632+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Need something demo-ready quickly.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:18:23.202632+00:00",
+      "dependencies": []
+    },
+    "MVP scope will consist of summaries and action items, excluding decision intelligence/detection.": {
+      "decision": "MVP scope will consist of summaries and action items, excluding decision intelligence/detection.",
+      "created_at": "2026-04-19T10:22:25.639064+00:00",
+      "history": [
+        {
+          "revision_id": "1ae19954-752e-4488-beb7-a2c4da86e5f6",
+          "decision": "MVP scope will consist of summaries and action items, excluding decision intelligence/detection.",
+          "owner": null,
+          "rationale": "To ensure the product is demo-ready in 2 weeks and avoid overengineering.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:25.639064+00:00"
+        },
+        {
+          "revision_id": "fa6e47ed-bdff-49c5-8cb1-52cae0f96a02",
+          "decision": "MVP scope will consist of summaries and action items, excluding decision intelligence/detection.",
+          "owner": null,
+          "rationale": "To ensure the product is demo-ready in 2 weeks and avoid overengineering.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:26.571405+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "To ensure the product is demo-ready in 2 weeks and avoid overengineering.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:22:26.571405+00:00",
+      "dependencies": []
+    },
+    "Processing will be post-meeting rather than real-time.": {
+      "decision": "Processing will be post-meeting rather than real-time.",
+      "created_at": "2026-04-19T10:22:25.661065+00:00",
+      "history": [
+        {
+          "revision_id": "1b598043-b642-4ec1-9be0-05da1ff9d1c7",
+          "decision": "Processing will be post-meeting rather than real-time.",
+          "owner": null,
+          "rationale": "Real-time processing is risky due to latency, infrastructure complexity, and potential failure under noise or overlapping speech.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:25.661065+00:00"
+        },
+        {
+          "revision_id": "3b2c6363-ef08-4c9b-86b2-2ef4bfbf5838",
+          "decision": "Processing will be post-meeting rather than real-time.",
+          "owner": null,
+          "rationale": "Real-time processing is risky due to latency, infrastructure complexity, and potential failure under noise or overlapping speech.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:26.591404+00:00"
+        },
+        {
+          "revision_id": "2b3f155b-5296-4ac2-8800-3527f77543fc",
+          "decision": "Processing will be post-meeting rather than real-time.",
+          "owner": null,
+          "rationale": "Real-time processing is risky due to latency, infrastructure complexity, and potential failure under noise or overlapping speech.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:23:17.995911+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Real-time processing is risky due to latency, infrastructure complexity, and potential failure under noise or overlapping speech.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:23:17.995911+00:00",
+      "dependencies": []
+    },
+    "Use a smaller Whisper model for transcription.": {
+      "decision": "Use a smaller Whisper model for transcription.",
+      "created_at": "2026-04-19T10:22:25.680070+00:00",
+      "history": [
+        {
+          "revision_id": "81cf7b98-e0d4-4f5d-8483-96d468af8703",
+          "decision": "Use a smaller Whisper model for transcription.",
+          "owner": null,
+          "rationale": "Prioritizing speed over perfection for the MVP, as users tolerate minor errors more than delays.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:25.680070+00:00"
+        },
+        {
+          "revision_id": "cd8969bb-c7fb-4794-9525-9ee1e7e36992",
+          "decision": "Use a smaller Whisper model for transcription.",
+          "owner": null,
+          "rationale": "Prioritizing speed over perfection for the MVP, as users tolerate minor errors more than delays.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:26.609404+00:00"
+        },
+        {
+          "revision_id": "90261d61-01f4-4fd2-bb55-6ba20c45b9e9",
+          "decision": "Use a smaller Whisper model for transcription.",
+          "owner": null,
+          "rationale": "Prioritize speed over perfection for the MVP; users tolerate minor errors more than delays.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:23:18.023900+00:00"
+        },
+        {
+          "revision_id": "43d09870-40da-4111-b17f-0736455cf91a",
+          "decision": "Use a smaller Whisper model for transcription.",
+          "owner": null,
+          "rationale": "Prioritize speed over perfection for the MVP; users tolerate minor errors more than delays.",
+          "status": "Final",
+          "source_meeting": null,
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:27:11.101971+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Prioritize speed over perfection for the MVP; users tolerate minor errors more than delays.",
+      "status": "Final",
+      "source_meeting": null,
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:27:11.101971+00:00",
+      "dependencies": []
+    },
+    "Exclude embedding storage for search from the MVP.": {
+      "decision": "Exclude embedding storage for search from the MVP.",
+      "created_at": "2026-04-19T10:22:25.701579+00:00",
+      "history": [
+        {
+          "revision_id": "dd863104-359f-4334-92e7-6980853bfa82",
+          "decision": "Exclude embedding storage for search from the MVP.",
+          "owner": null,
+          "rationale": "Considered scope creep and not necessary for the initial MVP.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:25.701579+00:00"
+        },
+        {
+          "revision_id": "b1aa5704-b271-4e93-b661-b7f14ad34618",
+          "decision": "Exclude embedding storage for search from the MVP.",
+          "owner": null,
+          "rationale": "Considered scope creep and not necessary for the initial MVP.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:26.631422+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Considered scope creep and not necessary for the initial MVP.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:22:26.631422+00:00",
+      "dependencies": []
+    },
+    "MVP deadline is set for 2 weeks.": {
+      "decision": "MVP deadline is set for 2 weeks.",
+      "created_at": "2026-04-19T10:22:25.721584+00:00",
+      "history": [
+        {
+          "revision_id": "1a26172b-e779-4137-86f1-d10c1b0ccbe9",
+          "decision": "MVP deadline is set for 2 weeks.",
+          "owner": null,
+          "rationale": "Need something demo-ready quickly.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:25.721584+00:00"
+        },
+        {
+          "revision_id": "ea82f0ea-4dbd-432c-95f5-d789a0c4bb06",
+          "decision": "MVP deadline is set for 2 weeks.",
+          "owner": null,
+          "rationale": "Need something demo-ready quickly.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:22:26.656404+00:00"
+        },
+        {
+          "revision_id": "70a92881-11fc-4886-93cf-42eaa0cf9e6a",
+          "decision": "MVP deadline is set for 2 weeks.",
+          "owner": null,
+          "rationale": null,
+          "status": "Final",
+          "source_meeting": null,
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:27:11.194230+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": null,
+      "status": "Final",
+      "source_meeting": null,
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:27:11.194230+00:00",
+      "dependencies": []
+    },
+    "Tech stack will be FastAPI backend, Redis queue, PostgreSQL storage, and Whisper.": {
+      "decision": "Tech stack will be FastAPI backend, Redis queue, PostgreSQL storage, and Whisper.",
+      "created_at": "2026-04-19T10:23:18.046414+00:00",
+      "history": [
+        {
+          "revision_id": "c0fc97bb-8411-4949-95d5-8ff34bc299ea",
+          "decision": "Tech stack will be FastAPI backend, Redis queue, PostgreSQL storage, and Whisper.",
+          "owner": null,
+          "rationale": "Proposed as a simple architecture for the MVP.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:23:18.046414+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Proposed as a simple architecture for the MVP.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:23:18.046414+00:00",
+      "dependencies": []
+    },
+    "Project deadline is 2 weeks.": {
+      "decision": "Project deadline is 2 weeks.",
+      "created_at": "2026-04-19T10:23:18.096930+00:00",
+      "history": [
+        {
+          "revision_id": "0c7a5c29-34c9-4dcd-a5f3-398151f8fb52",
+          "decision": "Project deadline is 2 weeks.",
+          "owner": null,
+          "rationale": "Need to be demo-ready quickly.",
+          "status": "Final",
+          "source_meeting": "json-test",
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:23:18.096930+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Need to be demo-ready quickly.",
+      "status": "Final",
+      "source_meeting": "json-test",
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:23:18.096930+00:00",
+      "dependencies": []
+    },
+    "Tech stack: FastAPI backend, Redis queue, PostgreSQL storage, and Whisper for transcription.": {
+      "decision": "Tech stack: FastAPI backend, Redis queue, PostgreSQL storage, and Whisper for transcription.",
+      "created_at": "2026-04-19T10:27:11.083367+00:00",
+      "history": [
+        {
+          "revision_id": "246b12cb-a55a-419d-a1db-932ab19f6763",
+          "decision": "Tech stack: FastAPI backend, Redis queue, PostgreSQL storage, and Whisper for transcription.",
+          "owner": null,
+          "rationale": null,
+          "status": "Proposed",
+          "source_meeting": null,
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:27:11.083367+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": null,
+      "status": "Proposed",
+      "source_meeting": null,
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:27:11.083367+00:00",
+      "dependencies": []
+    },
+    "API response will be structured JSON containing summary, action_items, and speakers.": {
+      "decision": "API response will be structured JSON containing summary, action_items, and speakers.",
+      "created_at": "2026-04-19T10:27:11.134345+00:00",
+      "history": [
+        {
+          "revision_id": "84ef8326-39bf-4c8a-bba4-4ab2aacf181f",
+          "decision": "API response will be structured JSON containing summary, action_items, and speakers.",
+          "owner": null,
+          "rationale": null,
+          "status": "Final",
+          "source_meeting": null,
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:27:11.134345+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": null,
+      "status": "Final",
+      "source_meeting": null,
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:27:11.134345+00:00",
+      "dependencies": []
+    },
+    "Exclude storing embeddings for search from the MVP.": {
+      "decision": "Exclude storing embeddings for search from the MVP.",
+      "created_at": "2026-04-19T10:27:11.165219+00:00",
+      "history": [
+        {
+          "revision_id": "0cff13c9-0e48-4976-b252-38ec8f81a027",
+          "decision": "Exclude storing embeddings for search from the MVP.",
+          "owner": null,
+          "rationale": "Considered scope creep and not needed for the initial MVP.",
+          "status": "Final",
+          "source_meeting": null,
+          "timestamp": null,
+          "recorded_at": "2026-04-19T10:27:11.165219+00:00"
+        }
+      ],
+      "owner": null,
+      "rationale": "Considered scope creep and not needed for the initial MVP.",
+      "status": "Final",
+      "source_meeting": null,
+      "timestamp": null,
+      "updated_at": "2026-04-19T10:27:11.165219+00:00",
+      "dependencies": []
+    }
+  }
+}

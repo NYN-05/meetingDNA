@@ -1,0 +1,324 @@
+
+
+
+
+of ⁨12⁩
+
+
+
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 3 of 12
+1. Executive Summary
+MeetingDNA is a B2B SaaS decision intelligence engine that automatically converts
+company meeting recordings and transcripts into a structured, queryable decision
+knowledge graph — with zero behavior change required from any team member.
+It answers the question every growing company struggles with: 'Why did we decide that,
+and what else broke when we changed it?'
+Every company above ten people silently suffers from institutional amnesia. Decisions get made
+in meetings, reasoning stays locked in someone's head, and months later nobody can explain
+why the pricing changed, who owned the infra migration, or what assumptions the product
+roadmap was built on.
+Existing tools like Notion and Confluence attempt to solve this through documentation — but
+documentation requires discipline that teams consistently fail to maintain. MeetingDNA takes a
+fundamentally different approach: it works on the recordings your team already makes, requiring
+nothing new from anyone.
+2. Problem Statement
+2.1 The Institutional Amnesia Problem
+Most organizations operate with a painful but invisible inefficiency: they have no reliable record of
+why decisions were made. The consequences compound quietly across every team, every
+quarter.
+• Decisions get reversed without anyone knowing what downstream dependencies they
+break
+• New hires spend weeks reconstructing context that was never written down
+• Engineering teams build on assumptions that were invalidated in meetings they never
+attended
+• Strategy pivots create cascading misalignments nobody tracks or surfaces
+2.2 Why Existing Tools Fail
+Tool What It Does & Why It Falls Short
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 4 of 12
+Notion / Confluence Requires manual documentation. Nobody writes down the 'why.'
+Adoption fails within weeks.
+Gong / Chorus Sales call intelligence only. No decision graph. No org-level
+memory.
+Fireflies.ai Transcription and keyword search. Returns text chunks, not
+structured decisions.
+Slack / Email Conversational. Context buried and unsearchable after two
+weeks.
+Mem.ai / Rewind Personal knowledge tools. Individual scope, not organizational.
+The gap is structural: every tool in the market captures what was said. Nobody captures what was
+decided, who owns it, what rationale drove it, and what other decisions depend on it. That gap is
+exactly where MeetingDNA operates.
+2.3 The Real Cost
+This is not a minor inconvenience. Consider a Series B company of 80 people running two hours
+of meetings per day. Over six months that's roughly 15,000 hours of decisions made — none of
+them indexed, none of them queryable, none of them connected to each other. When a single
+upstream decision reverses and three downstream decisions were built on it, the misaligned
+engineering work alone can represent hundreds of thousands of dollars in waste.
+3. Proposed Solution
+3.1 What MeetingDNA Builds
+MeetingDNA is not a meeting summarizer. It is not RAG over transcripts. It is a structured
+decision knowledge graph — where every node represents a decision with five properties:
+what was decided, who owns it, why it was made, its current status, and which other decisions
+depend on it.
+3.2 The Decision Node Structure
+Property Description Example Value Why It Matters
+Decision The actual choice made Move infra to AWS by Q4 Core record of intent
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 5 of 12
+Owner Accountable individual or
+team
+Rohan, Engineering Lead Accountability layer
+Rationale Why this choice was
+made
+GCP costs 40% higher at
+scale
+Context preservation
+Status Current state of the
+decision
+Reversed — Nov 2024
+meeting
+Temporal accuracy
+Dependencies Downstream decisions
+built on this
+3 linked decisions
+affected
+Impact intelligence
+3.3 Core Capabilities
+Natural Language Query Interface
+• 'Why did we drop the freemium tier?' → sourced answer with original meeting timestamp
+• 'Who owned the AWS migration?' → owner, decision date, current status
+• 'What changed in Q3 pricing?' → full decision history with rationale chain
+Dependency Graph Traversal
+• 'Show all decisions that depended on the infra migration' → graph lights up with linked
+nodes
+• When a decision reverses, MeetingDNA surfaces every downstream decision never
+revisited
+• Full causal chain visualization — understand second-order impacts instantly
+Retroactive Intelligence
+• Works on recordings and transcripts your team already has — no new behavior required
+• Ingests Zoom recordings, Gong transcripts, Fireflies exports, Otter.ai outputs
+• Builds institutional memory going back to day one of your recording history
+3.4 The Demo Moment
+The single most powerful demo sequence:
+1. Drop 5 company transcripts covering 6 months of decisions
+2. MeetingDNA builds the decision graph — live, in front of the judges
+3. Query: 'Why did we drop freemium?' → sourced answer with meeting clip reference
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 6 of 12
+4. Query: 'What decisions depended on the AWS migration?' → graph illuminates 3 nodes
+5. Punch line: 'Two of those decisions were never revisited after the migration
+reversed. That is $200K of misaligned engineering work.'
+4. Technical Architecture
+4.1 Tech Stack Overview
+Layer Technology & Role
+Transcription OpenAI Whisper — converts audio recordings to raw text transcripts
+Decision Extraction Claude API (Anthropic) — long-context LLM that extracts structured
+decision nodes: owner, rationale, status, dependencies as JSON
+Graph Storage Neo4j — stores decision nodes and their relationships; enables graph
+traversal queries
+Semantic Search ChromaDB — vector embeddings for semantic fallback when graph
+traversal is insufficient
+Backend
+Orchestration
+FastAPI — API layer that coordinates the extraction pipeline and
+query agent
+Demo Interface React/Vite — clean, functional UI with graph visualization for the demo
+4.2 Pipeline Architecture
+INPUT LAYER
+Audio Files / Existing Transcripts / Gong Exports / Fireflies Outputs
+|
+TRANSCRIPTION LAYER
+OpenAI Whisper → Raw Text Transcripts
+|
+EXTRACTION LAYER
+Claude API (Long Context) → Structured Decision JSON
+{ decision, owner, rationale, status, dependencies[] }
+|
+STORAGE LAYER
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 7 of 12
+Neo4j Graph DB ←→ ChromaDB Vector Store
+(Relational Traversal) (Semantic Search Fallback)
+|
+QUERY AGENT
+FastAPI → Claude API → Natural Language Response
+|
+INTERFACE LAYER
+React/Vite UI + Neo4j Graph Visualization
+4.3 Why This Stack Is Novel
+Most hackathon projects follow a predictable pattern:
+Data → Embedding → Vector DB → RAG → Chat UI
+MeetingDNA's pipeline is architecturally distinct:
+Transcripts → LLM Extraction → Structured Decision Nodes
+→ Graph DB → Relational + Semantic Query → Agent Response
+The three layers that make this genuinely novel are:
+• Relation Extraction: Relation extraction — pulling owner, rationale, status, and
+dependency links from unstructured conversation is a non-trivial NLP task that most teams
+will not attempt
+• Graph Traversal: Graph traversal over decisions — querying 'what broke when this
+decision reversed' requires graph logic, not vector similarity. This is architecturally distinct
+from RAG
+• Temporal Reasoning: Temporal reasoning — decisions have status that evolves over
+time. Tracking that state change across six months of meetings is genuinely hard
+5. Market Analysis
+5.1 Market Opportunity
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 8 of 12
+Market Level Definition Size Estimate Notes
+TAM Every B2B company with
+recorded meetings
+Global knowledge
+economy
+Essentially every SaaS
+company
+SAM Mid-market SaaS, 50-500
+employees, already using
+Zoom/Gong/Notion
+~500,000 companies
+globally
+Primary target
+segment
+SOM 10,000 companies ×
+$500/month
+$60M ARR Conservative 5-year
+penetration
+5.2 Competitive Positioning
+MeetingDNA occupies the whitespace between Gong and Notion — the decision layer that sits
+between sales intelligence and documentation, and is owned by nobody.
+Competitor Their Category Their Gap MeetingDNA Advantage
+Gong Sales call
+intelligence
+Sales only, no decision
+graph
+Org-wide, all departments
+Fireflies.ai Meeting transcription Text search only, no
+structure
+Structured graph, not search
+Notion AI Docs and knowledge
+base
+Requires manual
+documentation
+Automatic, retroactive
+Mem.ai Personal knowledge
+graph
+Individual scope only Organizational scope
+Rewind Personal meeting
+memory
+Personal, not team-level Team and org intelligence
+6. Business Model
+6.1 Pricing Tiers
+Tier Price Target Key Features
+Starter $49/seat/month Startups, 10-50
+employees
+Up to 50 hours of transcripts, basic
+graph, NL queries
+Growth $199/month flat Series A-B, 50-200
+employees
+Unlimited transcripts, full graph,
+integrations, team dashboard
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 9 of 12
+Enterprise Custom pricing 500+ employees On-premise option, SSO, custom
+integrations, SLA
+6.2 Revenue Moats
+• Integration Lock-in: Integration depth — Zoom, Gong, Fireflies, Slack, Notion
+integrations compound switching cost with every connection added
+• Data Network Effect: Graph depth — by 12 months, a company's entire decision history
+lives in MeetingDNA. The switching cost becomes existential
+• Passive Value Creation: Zero adoption friction — because no behavior change is
+required, churn from 'we stopped using it' is structurally near-impossible
+7. Idea Analysis & Scorecard
+7.1 Evaluation Scorecard
+Dimension Score Rating
+Problem Validity 9/10 ★★★★★
+Market Opportunity 8/10 ★★★★☆
+Technical Novelty 9/10 ★★★★★
+Demo-ability 10/10 ★★★★★
+Business Model Clarity 8/10 ★★★★☆
+Competitive Position 7/10 ★★★★☆
+Execution Risk (Hackathon) 6/10 ★★★☆☆
+Team Fit 9/10 ★★★★★
+Overall Score 8.25/10 ★★★★★
+7.2 Key Strengths
+• The problem is universally felt — every person in a B2B company has experienced 'why
+did we decide this?' pain
+• No direct competitor — this is a category creation play, not a feature war
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 10 of 12
+• Demo has emotional resonance — the '$200K of misaligned work' punch line lands with
+every judge, investor, and founder in the room
+• ML background creates authentic technical depth — entity extraction and relation
+classification are not faked skills here
+• Zero behavior change adoption — structurally eliminates the most common reason
+enterprise software fails
+7.3 Risks & Mitigations
+Risk Mitigation Strategy
+Pipeline complexity —
+multiple failure points under
+time pressure
+Pre-transcribe demo audio. Pre-populate part of the graph.
+Have a static fallback demo ready.
+'Mistaken for meeting
+summarizer' positioning
+Lead every pitch with the dependency graph demo, not the
+Q&A feature. The graph visual is your differentiator.
+LLM extraction quality on
+noisy transcripts
+Use curated demo transcripts. Show it works cleanly and
+don't let judges probe edge cases live.
+Neo4j setup time in
+hackathon
+Use Neo4j Aura (cloud) not local. Or fall back to NetworkX
+for graph logic if time is tight.
+8. Official Submission Abstract
+The following is the polished abstract for hackathon idea submission:
+PROBLEM STATEMENT
+Every growing company suffers from institutional amnesia. Decisions get made in meetings,
+rationale lives in someone's head, and six months later nobody remembers why the pricing
+changed or who owned the infra migration. Tools like Notion and Confluence try to fix this
+through documentation — but documentation requires discipline that teams never sustain.
+The result is reversed decisions, repeated mistakes, and weeks lost reconstructing context
+that was never written down.
+PROPOSED SOLUTION
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 11 of 12
+MeetingDNA converts your existing meeting recordings into a structured decision intelligence
+layer — automatically, retroactively, with zero behavior change required. It extracts every
+decision made across meetings along with the owner, rationale, current status, and
+downstream dependencies, storing them as a traversable decision graph. Anyone can then
+query it in plain English. The key differentiator is dependency tracking — when a decision
+reverses, MeetingDNA immediately surfaces every downstream decision built on top of it and
+never revisited.
+TECH STACK
+Whisper (transcription) · Claude API (extraction + agent) · Neo4j (decision graph) ·
+ChromaDB (semantic search) · FastAPI (backend) · React/Vite (demo interface)
+9. Appendix — Sample Query Demonstrations
+Query 1: Decision Retrieval
+User: "Why did we drop the freemium tier?"
+MeetingDNA: The freemium tier was discontinued on September 14, 2024. The decision
+was owned by Priya (Head of Growth). Rationale: conversion rate from free to paid
+was 0.8% vs industry benchmark of 3-5%. The engineering cost of maintaining the
+free tier was consuming 20% of backend capacity. Source: Product Strategy Sync,
+Sep 14 2024, timestamp 00:23:41.
+Query 2: Dependency Graph Traversal
+User: "What decisions depended on the AWS migration?"
+MeetingDNA: The AWS migration decision (Aug 2024, Owner: Rohan) has 3 downstream
+dependencies:
+1. CDN vendor switch to CloudFront [Completed — aligned]
+2. Database replication strategy overhaul [In progress — aligned]
+MeetingDNA — Decision Intelligence Engine | Hackathon Project Documentation
+MeetingDNA • Confidential • Page 12 of 12
+3. Pricing model update for compute costs [NEVER REVISITED — decision made
+before migration reversed. This decision is now based on outdated assumptions.]
+Warning: Decision #3 was built on assumptions that may no longer hold.
+Recommend immediate review.
+Query 3: Owner Accountability
+User: "Who owns the infra migration and what is its current status?"
+MeetingDNA: The infra migration to AWS was owned by Rohan (Engineering Lead).
+Status: REVERSED on November 8, 2024.
+Original rationale: Cost reduction and better ML tooling ecosystem.
+Reversal reason: Integration complexity exceeded estimated timeline by 3x.
+Source: Engineering All-Hands, Nov 8 2024, timestamp 01:12:05.
+MeetingDNA — Built for the builders who refuse to repeat history.
+© 2025 MeetingDNA. All rights reserved.

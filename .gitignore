@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+pip-wheel-metadata/
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+ui/node_modules/
+ui/dist/
+
+# Local tooling / secrets
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Runtime data
+data/uploads/*
+data/transcripts/*
+data/chromadb/*.sqlite3
+ui/data/chromadb/*.sqlite3
