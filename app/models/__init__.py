@@ -1,2 +1,5 @@
 """Data models package."""
-# This is just to ensure the directory is treated as as a package
+
+from app.models.decision import DecisionNode, DecisionRevision
+from app.models.meeting import ActionItem, MeetingDecision, MeetingRecord, MeetingSnapshot
+
